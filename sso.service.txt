@@ -1,0 +1,11 @@
+[Unit]
+Description=<Red Hat Single-Sign-On service>
+
+[Service]
+User=root
+Type=simple
+ExecStart=/rootsso/bin/standalone.sh
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
