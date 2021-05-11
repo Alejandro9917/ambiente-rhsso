@@ -1,10 +1,10 @@
 [Unit]
-Description=<Red Hat Single-Sign-On service>
+Description=<Red Hat Data Grid service>
 
 [Service]
 User=root
 Type=simple
-ExecStart=/home/sso/bin/standalone.sh
+ExecStart=/home/datagrid/bin/server.sh
 Restart=on-abnormal
 
 [Install]
