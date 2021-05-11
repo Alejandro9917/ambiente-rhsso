@@ -7,9 +7,12 @@
         xmlns:server="urn:infinispan:server:11.0">
 
    <jgroups>
+      <stack name="global-cluster" extends="tcp">
+         <TCPPING initial_hosts="192.168.0.10[7800], 192.168.0.9[7800]" stack.combine="REPLACE" stack.position="MPING"/>
+      </stack>
       <stack name="xsite" extends="udp">
-         <relay.RELAY2 site="site1" xmlns="urn:org:jgroups"/>
-         <remote-sites default-stack="tcp">
+         <relay.RELAY2 site="site1" max_site_masters="1000" xmlns="urn:org:jgroups"/>
+         <remote-sites default-stack="global-cluster">
             <remote-site name="site1"/>
             <remote-site name="site2"/>
          </remote-sites>
