@@ -1,0 +1,10 @@
+echo "creating caches..."
+create cache work --template=sessions-cfg
+create cache sessions --template=sessions-cfg
+create cache clientSessions --template=sessions-cfg
+create cache offlineSessions --template=sessions-cfg
+create cache offlineClientSessions --template=sessions-cfg
+create cache actionTokens --template=sessions-cfg
+create cache loginFailures --template=sessions-cfg
+echo "verifying caches"
+ls caches

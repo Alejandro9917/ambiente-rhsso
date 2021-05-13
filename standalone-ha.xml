@@ -638,13 +638,13 @@
     </profile>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:192.168.0.10}"/>
+            <inet-address value="${jboss.bind.address.management:192.168.0.11}"/>
         </interface>
         <interface name="private">
-            <inet-address value="${jboss.bind.address.private:192.168.0.10}"/>
+            <inet-address value="${jboss.bind.address.private:192.168.0.11}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:192.168.0.10}"/>
+            <inet-address value="${jboss.bind.address:192.168.0.11}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
