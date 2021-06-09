@@ -4,7 +4,7 @@ Description=<Red Hat Single-Sign-On service>
 [Service]
 User=root
 Type=simple
-ExecStart=/home/sso/bin/standalone.sh
+ExecStart=/bin/bash /home/node11/bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node11 -Djboss.site.name=site1
 Restart=on-abnormal
 
 [Install]
