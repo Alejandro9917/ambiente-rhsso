@@ -8,7 +8,7 @@
 
    <jgroups>
       <stack name="global-cluster" extends="tcp">
-         <TCPPING initial_hosts="192.168.0.11[7800], 192.168.0.7[7800], 192.168.0.8[7800]" stack.combine="REPLACE" stack.position="MPING"/>
+         <TCPPING initial_hosts="192.168.0.13[7800], 192.168.0.14[7800], 192.168.0.15[7800]" stack.combine="REPLACE" stack.position="MPING"/>
       </stack>
       <stack name="xsite" extends="udp">
          <relay.RELAY2 site="site3" max_site_masters="1000" xmlns="urn:org:jgroups"/>
@@ -34,7 +34,7 @@
    <server xmlns="urn:infinispan:server:11.0">
       <interfaces>
          <interface name="public">
-            <inet-address value="${infinispan.bind.address:192.168.0.8}"/>
+            <inet-address value="${infinispan.bind.address:192.168.0.15}"/>
          </interface>
       </interfaces>
 
@@ -46,14 +46,11 @@
       <security>
          <security-realms>
             <security-realm name="default">
-               <!-- Uncomment to enable TLS on the realm -->
-               <!-- server-identities>
+               <server-identities>
                   <ssl>
-                     <keystore path="application.keystore" relative-to="infinispan.server.config.path"
-                               keystore-password="password" alias="server" key-password="password"
-                               generate-self-signed-certificate-host="localhost"/>
+                    <keystore path="server.jks" relative-to="infinispan.server.config.path" keystore-password="123456" alias="server" /> 
                   </ssl>
-               </server-identities-->
+                </server-identities>
                <properties-realm groups-attribute="Roles">
                   <user-properties path="users.properties" relative-to="infinispan.server.config.path" plain-text="true"/>
                   <group-properties path="groups.properties" relative-to="infinispan.server.config.path"/>
@@ -63,10 +60,12 @@
       </security>
 
       <endpoints socket-binding="default" security-realm="default">
-         <hotrod-connector name="hotrod"/>
+         <hotrod-connector name="hotrod">
+            <authentication>
+               <sasl mechanisms="SCRAM-SHA-512" server-name="infinispan" /> 
+            </authentication>
+         </hotrod-connector>
          <rest-connector name="rest"/>
-         <!-- Uncomment to enable the memcached connector -->
-         <!-- memcached-connector socket-binding="memcached" / -->
       </endpoints>
    </server>
 </infinispan>

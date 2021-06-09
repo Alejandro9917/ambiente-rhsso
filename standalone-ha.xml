@@ -141,7 +141,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/KeycloakDS" pool-name="KeycloakDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
-                    <connection-url>jdbc:mariadb://localhost:3306/keycloak</connection-url>
+                    <connection-url>jdbc:mariadb://192.168.0.13:3306/keycloak</connection-url>
                     <driver>mariadb</driver>
                     <pool>
                         <min-pool-size>5</min-pool-size>
@@ -234,7 +234,7 @@
             <buffer-pool name="default"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:infinispan:9.0">
-            <cache-container name="keycloak">
+            <cache-container name="keycloak" module="org.keycloak.keycloak-model-infinispan">
                 <transport lock-timeout="60000"/>
                 <local-cache name="realms">
                     <object-memory size="10000"/>
@@ -242,16 +242,94 @@
                 <local-cache name="users">
                     <object-memory size="10000"/>
                 </local-cache>
-                <distributed-cache name="sessions" owners="1"/>
+                <distributed-cache name="sessions" owners="1">
+                    <remote-store cache="sessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
+                </distributed-cache>
                 <distributed-cache name="authenticationSessions" owners="1"/>
-                <distributed-cache name="offlineSessions" owners="1"/>
-                <distributed-cache name="clientSessions" owners="1"/>
-                <distributed-cache name="offlineClientSessions" owners="1"/>
-                <distributed-cache name="loginFailures" owners="1"/>
+                <distributed-cache name="offlineSessions" owners="1">
+                    <remote-store cache="offlineSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
+                </distributed-cache>
+                <distributed-cache name="clientSessions" owners="1">
+                    <remote-store cache="clientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
+                </distributed-cache>
+                <distributed-cache name="offlineClientSessions" owners="1">
+                    <remote-store cache="offlineClientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
+                </distributed-cache>
+                <distributed-cache name="loginFailures" owners="1">
+                    <remote-store cache="loginFailures" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
+                </distributed-cache>
                 <local-cache name="authorization">
                     <object-memory size="10000"/>
                 </local-cache>
-                <replicated-cache name="work"/>
+                <replicated-cache name="work"> 
+                    <remote-store cache="work" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
+                </replicated-cache>
                 <local-cache name="keys">
                     <object-memory size="1000"/>
                     <expiration max-idle="3600000"/>
@@ -259,6 +337,18 @@
                 <distributed-cache name="actionTokens" owners="2">
                     <object-memory size="-1"/>
                     <expiration max-idle="-1" interval="300000"/>
+                    <remote-store cache="actionTokens" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                        <property name="rawValues">true</property>
+                        <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
+                        <property name="infinispan.client.hotrod.auth_username">ale3</property>
+                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_realm">default</property>
+                        <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
+                        <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/server3/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
+                        <property name="infinispan.client.hotrod.trust_store_password">123456</property>
+                    </remote-store>
                 </distributed-cache>
             </cache-container>
             <cache-container name="server" aliases="singleton cluster" default-cache="default" module="org.wildfly.clustering.server">
@@ -638,13 +728,13 @@
     </profile>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:192.168.0.8}"/>
+            <inet-address value="${jboss.bind.address.management:192.168.0.15}"/>
         </interface>
         <interface name="private">
-            <inet-address value="${jboss.bind.address.private:192.168.0.8}"/>
+            <inet-address value="${jboss.bind.address.private:192.168.0.15}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:192.168.0.8}"/>
+            <inet-address value="${jboss.bind.address:192.168.0.15}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
@@ -663,6 +753,9 @@
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
             <remote-destination host="localhost" port="25"/>
+        </outbound-socket-binding>
+        <outbound-socket-binding name="remote-cache"> 
+            <remote-destination host="${remote.cache.host:192.168.0.15}" port="${remote.cache.port:11222}"/> 
         </outbound-socket-binding>
     </socket-binding-group>
 </server>

@@ -2,9 +2,8 @@
 Description=<Red Hat Data Grid service>
 
 [Service]
-User=root
 Type=simple
-ExecStart=/home/datagrid/bin/server.sh
+ExecStart=/bin/bash /home/server1/bin/server.sh
 Restart=on-abnormal
 
 [Install]
