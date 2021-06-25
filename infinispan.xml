@@ -8,14 +8,14 @@
 
    <jgroups>
       <stack name="global-cluster" extends="tcp">
-         <TCPPING initial_hosts="192.168.0.13[7800], 192.168.0.14[7800], 192.168.0.15[7800]" stack.combine="REPLACE" stack.position="MPING"/>
+         <TCPPING initial_hosts="10.0.0.97[7800], 20.0.0.97[7800], 30.0.0.97[7800]" stack.combine="REPLACE" stack.position="MPING"/>
       </stack>
       <stack name="xsite" extends="udp">
-         <relay.RELAY2 site="site3" max_site_masters="1000" xmlns="urn:org:jgroups"/>
+         <relay.RELAY2 site="site-hn" max_site_masters="1000" xmlns="urn:org:jgroups"/>
          <remote-sites default-stack="global-cluster">
-            <remote-site name="site1"/>
-            <remote-site name="site2"/>
-            <remote-site name="site3"/>
+            <remote-site name="site-sv"/>
+            <remote-site name="site-gt"/>
+            <remote-site name="site-hn"/>
          </remote-sites>
       </stack>
    </jgroups>
@@ -25,8 +25,8 @@
       <replicated-cache-configuration name="sessions-cfg" mode="SYNC"> 
          <locking acquire-timeout="0" /> 
          <backups>
-            <backup site="site1" strategy="SYNC" /> 
-            <backup site="site2" strategy="SYNC" />
+            <backup site="site-sv" strategy="SYNC" /> 
+            <backup site="site-gt" strategy="SYNC" />
          </backups>
       </replicated-cache-configuration>
    </cache-container>
@@ -34,7 +34,7 @@
    <server xmlns="urn:infinispan:server:11.0">
       <interfaces>
          <interface name="public">
-            <inet-address value="${infinispan.bind.address:192.168.0.15}"/>
+            <inet-address value="${infinispan.bind.address:30.0.0.97}"/>
          </interface>
       </interfaces>
 
