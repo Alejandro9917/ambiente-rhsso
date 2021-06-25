@@ -141,7 +141,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/KeycloakDS" pool-name="KeycloakDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
-                    <connection-url>jdbc:mariadb://192.168.0.13:3306/keycloak</connection-url>
+                    <connection-url>jdbc:mariadb://10.0.0.100:3306/keycloak</connection-url>
                     <driver>mariadb</driver>
                     <pool>
                         <min-pool-size>5</min-pool-size>
@@ -151,7 +151,7 @@
                         <flush-strategy>IdleConnections</flush-strategy>
                      </pool>
                     <security>
-                        <user-name>ale</user-name>
+                        <user-name>sso-sv</user-name>
                         <password>123</password>
                     </security>
                 </datasource>   
@@ -728,13 +728,13 @@
     </profile>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:192.168.0.15}"/>
+            <inet-address value="${jboss.bind.address.management:10.0.0.96}"/>
         </interface>
         <interface name="private">
-            <inet-address value="${jboss.bind.address.private:192.168.0.15}"/>
+            <inet-address value="${jboss.bind.address.private:10.0.0.96}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:192.168.0.15}"/>
+            <inet-address value="${jboss.bind.address:10.0.0.96}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
@@ -755,7 +755,7 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
         <outbound-socket-binding name="remote-cache"> 
-            <remote-destination host="${remote.cache.host:192.168.0.15}" port="${remote.cache.port:11222}"/> 
+            <remote-destination host="${remote.cache.host:10.0.0.96}" port="${remote.cache.port:11222}"/> 
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
