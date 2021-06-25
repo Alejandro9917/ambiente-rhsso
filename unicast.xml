@@ -2,7 +2,7 @@
     <stack name="global-cluster" extends="tcp">
        <MPING stack.combine="REMOVE"/>
        <TCP bind_addr="10.0.0.97" bind_port="7800" port_range="30" thread_pool.min_threads="0" thread_pool.max_threads="8" thread_pool.keep_alive_time="5000"/>
-       <TCPPING initial_hosts="20.0.0.97[7800], 30.0.0.97[7800]" stack.combine="INSERT_AFTER" stack.position="TCP"/>
+       <TCPPING initial_hosts="20.0.0.96[7800], 30.0.0.97[7800]" stack.combine="INSERT_AFTER" stack.position="TCP"/>
        <VERIFY_SUSPECT timeout="1500"  />
        <pbcast.NAKACK2 use_mcast_xmit="false" discard_delivered_msgs="true"/>
        <UNICAST3/>
