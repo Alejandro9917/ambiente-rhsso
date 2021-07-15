@@ -141,7 +141,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/KeycloakDS" pool-name="KeycloakDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
-                    <connection-url>jdbc:mariadb://10.0.0.100:3306/keycloak</connection-url>
+                    <connection-url>jdbc:mariadb://30.0.0.100:3306/keycloak</connection-url>
                     <driver>mariadb</driver>
                     <pool>
                         <min-pool-size>5</min-pool-size>
@@ -151,7 +151,7 @@
                         <flush-strategy>IdleConnections</flush-strategy>
                      </pool>
                     <security>
-                        <user-name>sso-sv</user-name>
+                        <user-name>sso-hn</user-name>
                         <password>123</password>
                     </security>
                 </datasource>   
@@ -246,7 +246,7 @@
                     <remote-store cache="sessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -261,7 +261,7 @@
                     <remote-store cache="offlineSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -275,7 +275,7 @@
                     <remote-store cache="clientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -289,7 +289,7 @@
                     <remote-store cache="offlineClientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -303,7 +303,7 @@
                     <remote-store cache="loginFailures" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -320,7 +320,7 @@
                     <remote-store cache="work" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -340,7 +340,7 @@
                     <remote-store cache="actionTokens" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-sv</property>
+                        <property name="infinispan.client.hotrod.auth_username">itm-gt</property>
                         <property name="infinispan.client.hotrod.auth_password">123</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
@@ -632,7 +632,7 @@
             <buffer-cache name="default"/>
             <server name="default-server">
                 <ajp-listener name="ajp" socket-binding="ajp"/>
-                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true" proxy-address-forwarding="true"/>
                 <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
