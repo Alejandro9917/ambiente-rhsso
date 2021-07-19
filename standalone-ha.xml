@@ -246,12 +246,12 @@
                     <remote-store cache="sessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -261,12 +261,12 @@
                     <remote-store cache="offlineSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -275,12 +275,12 @@
                     <remote-store cache="clientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -289,12 +289,12 @@
                     <remote-store cache="offlineClientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -303,12 +303,12 @@
                     <remote-store cache="loginFailures" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -320,12 +320,12 @@
                     <remote-store cache="work" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-hn</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -340,12 +340,12 @@
                     <remote-store cache="actionTokens" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
-                        <property name="infinispan.client.hotrod.auth_username">itm-gt</property>
-                        <property name="infinispan.client.hotrod.auth_password">123</property>
+                        <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
+                        <property name="infinispan.client.hotrod.auth_password">SyWarxE14t502iLEPOTy</property>
                         <property name="infinispan.client.hotrod.auth_realm">default</property>
                         <property name="infinispan.client.hotrod.auth_server_name">infinispan</property>
                         <property name="infinispan.client.hotrod.sasl_mechanism">SCRAM-SHA-512</property>
-                        <property name="infinispan.client.hotrod.trust_store_file_name">/home/itm/datagrid/server/conf/truststore.jks</property>
+                        <property name="infinispan.client.hotrod.trust_store_file_name">/opt/datagrid/server/conf/truststore.jks</property>
                         <property name="infinispan.client.hotrod.trust_store_type">JKS</property>
                         <property name="infinispan.client.hotrod.trust_store_password">123456</property>
                     </remote-store>
@@ -755,7 +755,7 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
         <outbound-socket-binding name="remote-cache"> 
-            <remote-destination host="${remote.cache.host:10.0.0.96}" port="${remote.cache.port:11222}"/> 
+            <remote-destination host="${remote.cache.host:192.168.4.73}" port="${remote.cache.port:11222}"/> 
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
