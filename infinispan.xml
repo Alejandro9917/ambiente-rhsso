@@ -8,14 +8,19 @@
 
    <jgroups>
       <stack name="global-cluster" extends="tcp">
-         <TCPPING initial_hosts="10.0.0.97[7800], 20.0.0.97[7800], 30.0.0.97[7800]" stack.combine="REPLACE" stack.position="MPING"/>
+         <TCPPING initial_hosts="192.168.1.73[7800], 192.168.1.74[7800], 192.168.3.73[7800], 192.168.3.74[7800], 192.168.4.73[7800], 192.168.4.74[7800]" 
+         stack.combine="REPLACE" 
+         stack.position="MPING"/>
       </stack>
       <stack name="xsite" extends="udp">
-         <relay.RELAY2 site="site-hn" max_site_masters="1000" xmlns="urn:org:jgroups"/>
+         <relay.RELAY2 site="site1-sv" max_site_masters="1000" xmlns="urn:org:jgroups"/>
          <remote-sites default-stack="global-cluster">
-            <remote-site name="site-sv"/>
-            <remote-site name="site-gt"/>
-            <remote-site name="site-hn"/>
+            <remote-site name="site1-sv"/>
+            <remote-site name="site2-sv"/>
+            <remote-site name="site1-gt"/>
+            <remote-site name="site2-gt"/>
+            <remote-site name="site1-hn"/>
+            <remote-site name="site2-hn"/>
          </remote-sites>
       </stack>
    </jgroups>
@@ -25,8 +30,11 @@
       <replicated-cache-configuration name="sessions-cfg" mode="SYNC"> 
          <locking acquire-timeout="0" /> 
          <backups>
-            <backup site="site-sv" strategy="SYNC" /> 
-            <backup site="site-gt" strategy="SYNC" />
+            <backup site="site2-sv" strategy="SYNC" /> 
+            <backup site="site1-gt" strategy="SYNC" />
+            <backup site="site2-gt" strategy="SYNC" /> 
+            <backup site="site1-hn" strategy="SYNC" />
+            <backup site="site2-hn" strategy="SYNC" /> 
          </backups>
       </replicated-cache-configuration>
    </cache-container>
@@ -34,7 +42,7 @@
    <server xmlns="urn:infinispan:server:11.0">
       <interfaces>
          <interface name="public">
-            <inet-address value="${infinispan.bind.address:30.0.0.97}"/>
+            <inet-address value="${infinispan.bind.address:192.168.1.73}"/>
          </interface>
       </interfaces>
 
@@ -48,7 +56,7 @@
             <security-realm name="default">
                <server-identities>
                   <ssl>
-                    <keystore path="server.jks" relative-to="infinispan.server.config.path" keystore-password="123456" alias="server" /> 
+                    <keystore path="server.jks" relative-to="infinispan.server.config.path" keystore-password="secret" alias="server" /> 
                   </ssl>
                 </server-identities>
                <properties-realm groups-attribute="Roles">
