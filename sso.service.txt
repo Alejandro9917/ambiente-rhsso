@@ -4,7 +4,7 @@ Description=<Red Hat Single-Sign-On service>
 [Service]
 User=root
 Type=simple
-ExecStart=/bin/bash /home/node11/bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node11 -Djboss.site.name=site1
+ExecStart=/bin/bash /home/node11/bin/standalone.sh -c -Dkeycloack.profile.feature.upload_scripts=enabled standalone-ha.xml -Djboss.node.name=node11 -Djboss.site.name=site1
 Restart=on-abnormal
 
 [Install]
