@@ -244,7 +244,8 @@
                     <object-memory size="10000"/>
                 </local-cache>
                 <distributed-cache name="sessions" owners="1">
-                    <remote-store cache="sessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="sessions" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -259,7 +260,8 @@
                 </distributed-cache>
                 <distributed-cache name="authenticationSessions" owners="1"/>
                 <distributed-cache name="offlineSessions" owners="1">
-                    <remote-store cache="offlineSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="offlineSessions" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -273,7 +275,8 @@
                     </remote-store>
                 </distributed-cache>
                 <distributed-cache name="clientSessions" owners="1">
-                    <remote-store cache="clientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="clientSessions" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -287,7 +290,8 @@
                     </remote-store>
                 </distributed-cache>
                 <distributed-cache name="offlineClientSessions" owners="1">
-                    <remote-store cache="offlineClientSessions" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="offlineClientSessions" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -301,7 +305,8 @@
                     </remote-store>
                 </distributed-cache>
                 <distributed-cache name="loginFailures" owners="1">
-                    <remote-store cache="loginFailures" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="loginFailures" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -318,7 +323,8 @@
                     <object-memory size="10000"/>
                 </local-cache>
                 <replicated-cache name="work"> 
-                    <remote-store cache="work" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="work" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -338,7 +344,8 @@
                 <distributed-cache name="actionTokens" owners="2">
                     <object-memory size="-1"/>
                     <expiration max-idle="-1" interval="300000"/>
-                    <remote-store cache="actionTokens" remote-servers="remote-cache" passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
+                    <remote-store cache="actionTokens" remote-servers="remote-cache" 
+                        passivation="false" fetch-state="false" purge="false" preload="false" shared="true">
                         <property name="rawValues">true</property>
                         <property name="marshaller">org.keycloak.cluster.infinispan.KeycloakHotRodMarshallerFactory</property>
                         <property name="infinispan.client.hotrod.auth_username">dg-sso-qa</property>
@@ -758,7 +765,8 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
         <outbound-socket-binding name="remote-cache"> 
-            <remote-destination host="${remote.cache.host:192.168.1.73}" port="${remote.cache.port:11222}"/> 
+            <remote-destination host="${remote.cache.host:192.168.1.73}" 
+                port="${remote.cache.port:11222}"/> 
         </outbound-socket-binding>
     </socket-binding-group>
 </server>
